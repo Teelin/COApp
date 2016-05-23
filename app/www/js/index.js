@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         console.log("i is camera"+navigator.camera);
-        app.happy();
+        app.setup();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -49,9 +49,15 @@ var app = {
         console.log('Received Event: ' + id);
     },
 
-    happy: function(){
-      navigator.camera.getPicture(app.cameraSuccess, app.cameraError);
+    setup: function(){
 
+      var element = document.getElementById('takephoto');
+      element.onclick = function() {
+        navigator.camera.getPicture(app.cameraSuccess, app.cameraError);
+      };
+
+      // replace following with example : http://youmightnotneedjquery.com/
+      // then we dont need to use jQuery which is 84KB of bloat to do one task
       jQuery(document).ready(function(){
         jQuery("#submit").click(function(){
           user=$("#user").val();
@@ -70,16 +76,19 @@ var app = {
       });
 
     },
+
     cameraError: function(){
       console.log("You fucked up son");
     },
+
     cameraSuccess: function(imageData){
       console.log("it worked son"+imageData);
       var image = document.getElementById('myImage');
       image.src = imageData;
     },
+
     setOptions: function() {
-    var options = {
+      var options = {
         // Some common settings are 20, 50, and 100
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,
@@ -89,9 +98,9 @@ var app = {
         mediaType: Camera.MediaType.PICTURE,
         allowEdit: true,
         correctOrientation: true  //Corrects Android orientation quirks
+      }
+      return options;
     }
-    return options;
-}
 };
 
 app.initialize();

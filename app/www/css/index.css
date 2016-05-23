@@ -102,14 +102,45 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.button{
+  background: #2FB8AF;
+  border: 0px;
+  padding: 25px 50px;
+  border-radius: 30px;
+  margin: 10px;
+  color: #fff;
+}
+
+button{
+  background: #2FB8AF;
+  border: 0px;
+  padding: 25px 50px;
+  border-radius: 30px;
+  margin: 10px;
+  color: #fff;
+}
+
+#submit.button{
+  background: #2FB8AF;
+}
+
+#takephoto.button{
+  background: #FF3D7F;
+}
+
+/*
+colours
+http://www.colourlovers.com/palette/4248039/Dolly_1
+*/
